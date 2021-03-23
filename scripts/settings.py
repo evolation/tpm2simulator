@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-SPEC_VERSION = "01.16"
-SPEC_VERSION_INT = 116
-SPEC_PATH = "../documents/116/"
+SPEC_VERSION = "01.38"
+SPEC_VERSION_INT = 138
+SPEC_PATH = "../documents/138/"
 
 PUBLISHED_SPEC_VERSIONS = ["01.16", "01.38"]
 
@@ -58,5 +58,5 @@ FIRMWARE_V1 = "(0x20160601)"        # "(0xYYYYMMDD)"
 ##########################################################
 # Change to "True" after setting the correct values above
 ##########################################################
-SET = False
+SET = True
 ##########################################################

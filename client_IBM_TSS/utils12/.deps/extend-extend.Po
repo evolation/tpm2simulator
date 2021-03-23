@@ -1,0 +1,580 @@
+extend-extend.o: extend.c /usr/include/stdc-predef.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/x86_64-linux-gnu/bits/string.h \
+ /usr/include/x86_64-linux-gnu/bits/string2.h \
+ /usr/include/x86_64-linux-gnu/bits/string3.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h ../utils/ibmtss/tss.h \
+ ../utils/ibmtss/TPM_Types.h ../utils/ibmtss/Implementation.h \
+ ../utils/ibmtss/TpmBuildSwitches.h ../utils/ibmtss/BaseTypes.h \
+ ../utils/ibmtss/TPMB.h ../utils/ibmtss/Parameters.h \
+ ../utils/ibmtss/TPM_Types.h ../utils/ibmtss/ActivateCredential_fp.h \
+ ../utils/ibmtss/CertifyCreation_fp.h ../utils/ibmtss/Certify_fp.h \
+ ../utils/ibmtss/CertifyX509_fp.h ../utils/ibmtss/ChangeEPS_fp.h \
+ ../utils/ibmtss/ChangePPS_fp.h ../utils/ibmtss/ClearControl_fp.h \
+ ../utils/ibmtss/Clear_fp.h ../utils/ibmtss/ClockRateAdjust_fp.h \
+ ../utils/ibmtss/ClockSet_fp.h ../utils/ibmtss/Commit_fp.h \
+ ../utils/ibmtss/ContextLoad_fp.h ../utils/ibmtss/ContextSave_fp.h \
+ ../utils/ibmtss/CreatePrimary_fp.h ../utils/ibmtss/Create_fp.h \
+ ../utils/ibmtss/CreateLoaded_fp.h \
+ ../utils/ibmtss/DictionaryAttackLockReset_fp.h \
+ ../utils/ibmtss/DictionaryAttackParameters_fp.h \
+ ../utils/ibmtss/Duplicate_fp.h ../utils/ibmtss/ECC_Parameters_fp.h \
+ ../utils/ibmtss/ECDH_KeyGen_fp.h ../utils/ibmtss/ECDH_ZGen_fp.h \
+ ../utils/ibmtss/EC_Ephemeral_fp.h ../utils/ibmtss/EncryptDecrypt_fp.h \
+ ../utils/ibmtss/EncryptDecrypt2_fp.h \
+ ../utils/ibmtss/EventSequenceComplete_fp.h \
+ ../utils/ibmtss/EvictControl_fp.h ../utils/ibmtss/FlushContext_fp.h \
+ ../utils/ibmtss/GetCapability_fp.h \
+ ../utils/ibmtss/GetCommandAuditDigest_fp.h \
+ ../utils/ibmtss/GetRandom_fp.h \
+ ../utils/ibmtss/GetSessionAuditDigest_fp.h \
+ ../utils/ibmtss/GetTestResult_fp.h ../utils/ibmtss/GetTime_fp.h \
+ ../utils/ibmtss/HMAC_Start_fp.h ../utils/ibmtss/HMAC_fp.h \
+ ../utils/ibmtss/HashSequenceStart_fp.h ../utils/ibmtss/Hash_fp.h \
+ ../utils/ibmtss/HierarchyChangeAuth_fp.h \
+ ../utils/ibmtss/HierarchyControl_fp.h ../utils/ibmtss/Import_fp.h \
+ ../utils/ibmtss/IncrementalSelfTest_fp.h \
+ ../utils/ibmtss/LoadExternal_fp.h ../utils/ibmtss/Load_fp.h \
+ ../utils/ibmtss/MakeCredential_fp.h ../utils/ibmtss/NV_Certify_fp.h \
+ ../utils/ibmtss/NV_ChangeAuth_fp.h ../utils/ibmtss/NV_DefineSpace_fp.h \
+ ../utils/ibmtss/NV_Extend_fp.h ../utils/ibmtss/NV_GlobalWriteLock_fp.h \
+ ../utils/ibmtss/NV_Increment_fp.h ../utils/ibmtss/NV_ReadLock_fp.h \
+ ../utils/ibmtss/NV_ReadPublic_fp.h ../utils/ibmtss/NV_Read_fp.h \
+ ../utils/ibmtss/NV_SetBits_fp.h \
+ ../utils/ibmtss/NV_UndefineSpaceSpecial_fp.h \
+ ../utils/ibmtss/NV_UndefineSpace_fp.h ../utils/ibmtss/NV_WriteLock_fp.h \
+ ../utils/ibmtss/NV_Write_fp.h ../utils/ibmtss/ObjectChangeAuth_fp.h \
+ ../utils/ibmtss/PCR_Allocate_fp.h ../utils/ibmtss/PCR_Event_fp.h \
+ ../utils/ibmtss/PCR_Extend_fp.h ../utils/ibmtss/PCR_Read_fp.h \
+ ../utils/ibmtss/PCR_Reset_fp.h ../utils/ibmtss/PCR_SetAuthPolicy_fp.h \
+ ../utils/ibmtss/PCR_SetAuthValue_fp.h ../utils/ibmtss/PP_Commands_fp.h \
+ ../utils/ibmtss/PolicyAuthValue_fp.h \
+ ../utils/ibmtss/PolicyAuthorize_fp.h \
+ ../utils/ibmtss/PolicyCommandCode_fp.h \
+ ../utils/ibmtss/PolicyCounterTimer_fp.h \
+ ../utils/ibmtss/PolicyCpHash_fp.h \
+ ../utils/ibmtss/PolicyDuplicationSelect_fp.h \
+ ../utils/ibmtss/PolicyGetDigest_fp.h ../utils/ibmtss/PolicyLocality_fp.h \
+ ../utils/ibmtss/PolicyNV_fp.h ../utils/ibmtss/PolicyAuthorizeNV_fp.h \
+ ../utils/ibmtss/PolicyNvWritten_fp.h ../utils/ibmtss/PolicyNameHash_fp.h \
+ ../utils/ibmtss/PolicyOR_fp.h ../utils/ibmtss/PolicyPCR_fp.h \
+ ../utils/ibmtss/PolicyPassword_fp.h \
+ ../utils/ibmtss/PolicyPhysicalPresence_fp.h \
+ ../utils/ibmtss/PolicyRestart_fp.h ../utils/ibmtss/PolicySecret_fp.h \
+ ../utils/ibmtss/PolicySigned_fp.h ../utils/ibmtss/PolicyTemplate_fp.h \
+ ../utils/ibmtss/PolicyTicket_fp.h ../utils/ibmtss/Quote_fp.h \
+ ../utils/ibmtss/RSA_Decrypt_fp.h ../utils/ibmtss/RSA_Encrypt_fp.h \
+ ../utils/ibmtss/ReadClock_fp.h ../utils/ibmtss/ReadPublic_fp.h \
+ ../utils/ibmtss/Rewrap_fp.h ../utils/ibmtss/SelfTest_fp.h \
+ ../utils/ibmtss/SequenceComplete_fp.h \
+ ../utils/ibmtss/SequenceUpdate_fp.h ../utils/ibmtss/SetAlgorithmSet_fp.h \
+ ../utils/ibmtss/SetCommandCodeAuditStatus_fp.h \
+ ../utils/ibmtss/SetPrimaryPolicy_fp.h ../utils/ibmtss/Shutdown_fp.h \
+ ../utils/ibmtss/Sign_fp.h ../utils/ibmtss/StartAuthSession_fp.h \
+ ../utils/ibmtss/Startup_fp.h ../utils/ibmtss/StirRandom_fp.h \
+ ../utils/ibmtss/TestParms_fp.h ../utils/ibmtss/Unseal_fp.h \
+ ../utils/ibmtss/VerifySignature_fp.h ../utils/ibmtss/ZGen_2Phase_fp.h \
+ ../utils/ibmtss/NTC_fp.h ../utils/ibmtss/Parameters12.h \
+ ../utils/ibmtss/ActivateIdentity_fp.h ../utils/ibmtss/tpmtypes12.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/socket2.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h \
+ ../utils/ibmtss/tpmstructures12.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ ../utils/ibmtss/tpmconstants12.h ../utils/ibmtss/tpmtypes12.h \
+ ../utils/ibmtss/CreateWrapKey_fp.h \
+ ../utils/ibmtss/CreateEndorsementKeyPair_fp.h \
+ ../utils/ibmtss/Extend_fp.h ../utils/ibmtss/FlushSpecific_fp.h \
+ ../utils/ibmtss/GetCapability12_fp.h ../utils/ibmtss/MakeIdentity_fp.h \
+ ../utils/ibmtss/NV_DefineSpace12_fp.h ../utils/ibmtss/NV_ReadValue_fp.h \
+ ../utils/ibmtss/NV_ReadValueAuth_fp.h ../utils/ibmtss/NV_WriteValue_fp.h \
+ ../utils/ibmtss/NV_WriteValueAuth_fp.h ../utils/ibmtss/OIAP_fp.h \
+ ../utils/ibmtss/OSAP_fp.h ../utils/ibmtss/OwnerReadInternalPub_fp.h \
+ ../utils/ibmtss/OwnerSetDisable_fp.h ../utils/ibmtss/LoadKey2_fp.h \
+ ../utils/ibmtss/PcrRead12_fp.h ../utils/ibmtss/PCR_Reset12_fp.h \
+ ../utils/ibmtss/Quote2_fp.h ../utils/ibmtss/ReadPubek_fp.h \
+ ../utils/ibmtss/Sign12_fp.h ../utils/ibmtss/Startup12_fp.h \
+ ../utils/ibmtss/TakeOwnership_fp.h ../utils/ibmtss/tsserror.h \
+ ../utils/ibmtss/tssprint.h ../utils/ibmtss/tssutils.h \
+ ../utils/ibmtss/tssfile.h ../utils/ibmtss/tssresponsecode.h
+
+/usr/include/stdc-predef.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/x86_64-linux-gnu/bits/string.h:
+
+/usr/include/x86_64-linux-gnu/bits/string2.h:
+
+/usr/include/x86_64-linux-gnu/bits/string3.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+../utils/ibmtss/tss.h:
+
+../utils/ibmtss/TPM_Types.h:
+
+../utils/ibmtss/Implementation.h:
+
+../utils/ibmtss/TpmBuildSwitches.h:
+
+../utils/ibmtss/BaseTypes.h:
+
+../utils/ibmtss/TPMB.h:
+
+../utils/ibmtss/Parameters.h:
+
+../utils/ibmtss/TPM_Types.h:
+
+../utils/ibmtss/ActivateCredential_fp.h:
+
+../utils/ibmtss/CertifyCreation_fp.h:
+
+../utils/ibmtss/Certify_fp.h:
+
+../utils/ibmtss/CertifyX509_fp.h:
+
+../utils/ibmtss/ChangeEPS_fp.h:
+
+../utils/ibmtss/ChangePPS_fp.h:
+
+../utils/ibmtss/ClearControl_fp.h:
+
+../utils/ibmtss/Clear_fp.h:
+
+../utils/ibmtss/ClockRateAdjust_fp.h:
+
+../utils/ibmtss/ClockSet_fp.h:
+
+../utils/ibmtss/Commit_fp.h:
+
+../utils/ibmtss/ContextLoad_fp.h:
+
+../utils/ibmtss/ContextSave_fp.h:
+
+../utils/ibmtss/CreatePrimary_fp.h:
+
+../utils/ibmtss/Create_fp.h:
+
+../utils/ibmtss/CreateLoaded_fp.h:
+
+../utils/ibmtss/DictionaryAttackLockReset_fp.h:
+
+../utils/ibmtss/DictionaryAttackParameters_fp.h:
+
+../utils/ibmtss/Duplicate_fp.h:
+
+../utils/ibmtss/ECC_Parameters_fp.h:
+
+../utils/ibmtss/ECDH_KeyGen_fp.h:
+
+../utils/ibmtss/ECDH_ZGen_fp.h:
+
+../utils/ibmtss/EC_Ephemeral_fp.h:
+
+../utils/ibmtss/EncryptDecrypt_fp.h:
+
+../utils/ibmtss/EncryptDecrypt2_fp.h:
+
+../utils/ibmtss/EventSequenceComplete_fp.h:
+
+../utils/ibmtss/EvictControl_fp.h:
+
+../utils/ibmtss/FlushContext_fp.h:
+
+../utils/ibmtss/GetCapability_fp.h:
+
+../utils/ibmtss/GetCommandAuditDigest_fp.h:
+
+../utils/ibmtss/GetRandom_fp.h:
+
+../utils/ibmtss/GetSessionAuditDigest_fp.h:
+
+../utils/ibmtss/GetTestResult_fp.h:
+
+../utils/ibmtss/GetTime_fp.h:
+
+../utils/ibmtss/HMAC_Start_fp.h:
+
+../utils/ibmtss/HMAC_fp.h:
+
+../utils/ibmtss/HashSequenceStart_fp.h:
+
+../utils/ibmtss/Hash_fp.h:
+
+../utils/ibmtss/HierarchyChangeAuth_fp.h:
+
+../utils/ibmtss/HierarchyControl_fp.h:
+
+../utils/ibmtss/Import_fp.h:
+
+../utils/ibmtss/IncrementalSelfTest_fp.h:
+
+../utils/ibmtss/LoadExternal_fp.h:
+
+../utils/ibmtss/Load_fp.h:
+
+../utils/ibmtss/MakeCredential_fp.h:
+
+../utils/ibmtss/NV_Certify_fp.h:
+
+../utils/ibmtss/NV_ChangeAuth_fp.h:
+
+../utils/ibmtss/NV_DefineSpace_fp.h:
+
+../utils/ibmtss/NV_Extend_fp.h:
+
+../utils/ibmtss/NV_GlobalWriteLock_fp.h:
+
+../utils/ibmtss/NV_Increment_fp.h:
+
+../utils/ibmtss/NV_ReadLock_fp.h:
+
+../utils/ibmtss/NV_ReadPublic_fp.h:
+
+../utils/ibmtss/NV_Read_fp.h:
+
+../utils/ibmtss/NV_SetBits_fp.h:
+
+../utils/ibmtss/NV_UndefineSpaceSpecial_fp.h:
+
+../utils/ibmtss/NV_UndefineSpace_fp.h:
+
+../utils/ibmtss/NV_WriteLock_fp.h:
+
+../utils/ibmtss/NV_Write_fp.h:
+
+../utils/ibmtss/ObjectChangeAuth_fp.h:
+
+../utils/ibmtss/PCR_Allocate_fp.h:
+
+../utils/ibmtss/PCR_Event_fp.h:
+
+../utils/ibmtss/PCR_Extend_fp.h:
+
+../utils/ibmtss/PCR_Read_fp.h:
+
+../utils/ibmtss/PCR_Reset_fp.h:
+
+../utils/ibmtss/PCR_SetAuthPolicy_fp.h:
+
+../utils/ibmtss/PCR_SetAuthValue_fp.h:
+
+../utils/ibmtss/PP_Commands_fp.h:
+
+../utils/ibmtss/PolicyAuthValue_fp.h:
+
+../utils/ibmtss/PolicyAuthorize_fp.h:
+
+../utils/ibmtss/PolicyCommandCode_fp.h:
+
+../utils/ibmtss/PolicyCounterTimer_fp.h:
+
+../utils/ibmtss/PolicyCpHash_fp.h:
+
+../utils/ibmtss/PolicyDuplicationSelect_fp.h:
+
+../utils/ibmtss/PolicyGetDigest_fp.h:
+
+../utils/ibmtss/PolicyLocality_fp.h:
+
+../utils/ibmtss/PolicyNV_fp.h:
+
+../utils/ibmtss/PolicyAuthorizeNV_fp.h:
+
+../utils/ibmtss/PolicyNvWritten_fp.h:
+
+../utils/ibmtss/PolicyNameHash_fp.h:
+
+../utils/ibmtss/PolicyOR_fp.h:
+
+../utils/ibmtss/PolicyPCR_fp.h:
+
+../utils/ibmtss/PolicyPassword_fp.h:
+
+../utils/ibmtss/PolicyPhysicalPresence_fp.h:
+
+../utils/ibmtss/PolicyRestart_fp.h:
+
+../utils/ibmtss/PolicySecret_fp.h:
+
+../utils/ibmtss/PolicySigned_fp.h:
+
+../utils/ibmtss/PolicyTemplate_fp.h:
+
+../utils/ibmtss/PolicyTicket_fp.h:
+
+../utils/ibmtss/Quote_fp.h:
+
+../utils/ibmtss/RSA_Decrypt_fp.h:
+
+../utils/ibmtss/RSA_Encrypt_fp.h:
+
+../utils/ibmtss/ReadClock_fp.h:
+
+../utils/ibmtss/ReadPublic_fp.h:
+
+../utils/ibmtss/Rewrap_fp.h:
+
+../utils/ibmtss/SelfTest_fp.h:
+
+../utils/ibmtss/SequenceComplete_fp.h:
+
+../utils/ibmtss/SequenceUpdate_fp.h:
+
+../utils/ibmtss/SetAlgorithmSet_fp.h:
+
+../utils/ibmtss/SetCommandCodeAuditStatus_fp.h:
+
+../utils/ibmtss/SetPrimaryPolicy_fp.h:
+
+../utils/ibmtss/Shutdown_fp.h:
+
+../utils/ibmtss/Sign_fp.h:
+
+../utils/ibmtss/StartAuthSession_fp.h:
+
+../utils/ibmtss/Startup_fp.h:
+
+../utils/ibmtss/StirRandom_fp.h:
+
+../utils/ibmtss/TestParms_fp.h:
+
+../utils/ibmtss/Unseal_fp.h:
+
+../utils/ibmtss/VerifySignature_fp.h:
+
+../utils/ibmtss/ZGen_2Phase_fp.h:
+
+../utils/ibmtss/NTC_fp.h:
+
+../utils/ibmtss/Parameters12.h:
+
+../utils/ibmtss/ActivateIdentity_fp.h:
+
+../utils/ibmtss/tpmtypes12.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/include/x86_64-linux-gnu/sys/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket_type.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/x86_64-linux-gnu/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket2.h:
+
+/usr/include/x86_64-linux-gnu/bits/in.h:
+
+../utils/ibmtss/tpmstructures12.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+../utils/ibmtss/tpmconstants12.h:
+
+../utils/ibmtss/tpmtypes12.h:
+
+../utils/ibmtss/CreateWrapKey_fp.h:
+
+../utils/ibmtss/CreateEndorsementKeyPair_fp.h:
+
+../utils/ibmtss/Extend_fp.h:
+
+../utils/ibmtss/FlushSpecific_fp.h:
+
+../utils/ibmtss/GetCapability12_fp.h:
+
+../utils/ibmtss/MakeIdentity_fp.h:
+
+../utils/ibmtss/NV_DefineSpace12_fp.h:
+
+../utils/ibmtss/NV_ReadValue_fp.h:
+
+../utils/ibmtss/NV_ReadValueAuth_fp.h:
+
+../utils/ibmtss/NV_WriteValue_fp.h:
+
+../utils/ibmtss/NV_WriteValueAuth_fp.h:
+
+../utils/ibmtss/OIAP_fp.h:
+
+../utils/ibmtss/OSAP_fp.h:
+
+../utils/ibmtss/OwnerReadInternalPub_fp.h:
+
+../utils/ibmtss/OwnerSetDisable_fp.h:
+
+../utils/ibmtss/LoadKey2_fp.h:
+
+../utils/ibmtss/PcrRead12_fp.h:
+
+../utils/ibmtss/PCR_Reset12_fp.h:
+
+../utils/ibmtss/Quote2_fp.h:
+
+../utils/ibmtss/ReadPubek_fp.h:
+
+../utils/ibmtss/Sign12_fp.h:
+
+../utils/ibmtss/Startup12_fp.h:
+
+../utils/ibmtss/TakeOwnership_fp.h:
+
+../utils/ibmtss/tsserror.h:
+
+../utils/ibmtss/tssprint.h:
+
+../utils/ibmtss/tssutils.h:
+
+../utils/ibmtss/tssfile.h:
+
+../utils/ibmtss/tssresponsecode.h:

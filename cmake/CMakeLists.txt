@@ -31,7 +31,7 @@ if (UNIX)
 
         MESSAGE("${Green}Extracting source code for the TPM simulator version ${SPEC_VERSION} (this may take a while)${ColorReset}")
         execute_process(WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/../scripts
-                 COMMAND python main.py ${SPEC_VERSION}
+                 COMMAND python2 main.py ${SPEC_VERSION}
                  RESULT_VARIABLE ret_var)
         
         if (${ret_var})
