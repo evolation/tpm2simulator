@@ -2,7 +2,7 @@
 import re
 
 from modules.extractors.spt_routines_extractor import SupportRoutinesExtractor
-from tpm2_part4_spt_routines_prototypes import SupportRoutinesPrototypeFile as PrototypeFile
+from modules.part4_spt_routines.tpm2_part4_spt_routines_prototypes import SupportRoutinesPrototypeFile as PrototypeFile
 from modules import constants
 from modules.file_handling import FileHandling
 from modules.extractors.license_extractor import LicenseExtractor

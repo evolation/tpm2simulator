@@ -173,38 +173,38 @@ class TableExtractorPDF(TableExtractor):
         fst_header_line = file.readline()[:-1]  # read first line of table
         scd_header_line = None  # there might be a second header line
 
-	count = 0
-	while (fst_header_line.startswith(" ")):
-		count += 1
-		fst_header_line = fst_header_line.replace(" ", "", 1)
+        count = 0
+        while (fst_header_line.startswith(" ")):
+            count += 1
+            fst_header_line = fst_header_line.replace(" ", "", 1)
 
-	for i in range(0, count):
-		fst_header_line = fst_header_line.replace(" ", "  ", 1)
+        for i in range(0, count):
+            fst_header_line = fst_header_line.replace(" ", "  ", 1)
 
-        columns_content = re.split("[ ]{2,}", fst_header_line)
-        fst_columns_content = columns_content
-        offsets = self.get_offsets(fst_header_line, columns_content)
+            columns_content = re.split("[ ]{2,}", fst_header_line)
+            fst_columns_content = columns_content
+            offsets = self.get_offsets(fst_header_line, columns_content)
 
-        scd_columns_content = None
-        if columns_content and columns_content[0] == "":  # header is in more than one row
-            scd_header_line = file.readline()  # skip empty line
-            scd_header_line = file.readline()[:-1]  # read second header line
-            columns_content = re.split("[ ]{2,}", scd_header_line)
-            scd_columns_content = columns_content
-            scd_offsets = self.get_offsets(scd_header_line, scd_columns_content)
-            offsets = list(set(offsets) | set(scd_offsets))
-            offsets = sorted(offsets)
+            scd_columns_content = None
+            if columns_content and columns_content[0] == "":  # header is in more than one row
+                scd_header_line = file.readline()  # skip empty line
+                scd_header_line = file.readline()[:-1]  # read second header line
+                columns_content = re.split("[ ]{2,}", scd_header_line)
+                scd_columns_content = columns_content
+                scd_offsets = self.get_offsets(scd_header_line, scd_columns_content)
+                offsets = list(set(offsets) | set(scd_offsets))
+                offsets = sorted(offsets)
 
-        start = 0
-        if scd_columns_content:  # get the header content (put together)
-            columns_content = []
-            for o in offsets[1:]:
-                columns_content.append((fst_header_line[start:o] + " " + scd_header_line[start:o]).strip())
-                start = o
-            columns_content.append((fst_header_line[start:] + " " + scd_header_line[start:]).strip())
+            start = 0
+            if scd_columns_content:  # get the header content (put together)
+                columns_content = []
+                for o in offsets[1:]:
+                    columns_content.append((fst_header_line[start:o] + " " + scd_header_line[start:o]).strip())
+                    start = o
+                columns_content.append((fst_header_line[start:] + " " + scd_header_line[start:]).strip())
 
-        return columns_content, offsets, fst_columns_content, scd_columns_content
-        # finished extracting header
+            return columns_content, offsets, fst_columns_content, scd_columns_content
+            # finished extracting header
 
     # Verify if the rows has a given number of columns
     # Parameters:
@@ -250,87 +250,87 @@ class TableExtractorPDF(TableExtractor):
                 if line == "":
                     continue
 
-		# cut comment after first word or skip line
-		if len(fst_columns_content) >= 3 and "Comments" in fst_columns_content[2:3]:
-			comment_offset = offsets[fst_columns_content.index("Comments")]
-			space_index_add = line[comment_offset:].find(" ")
-			if "skipped" in line[comment_offset:]:
-				continue
-			if space_index_add != -1:
-				line = line[:(comment_offset + space_index_add)]
-
-                # end of page, either break, or calculate new offsets
-                if line.startswith("Page") or line.startswith("Family"):
-                    for i in range(0, 5):
-                        line = file.readline()[:-1]
-                    if file.tell() == file_size:  # end of file
-                        break
-                    file.seek(file.tell() - len(line) - 1)
-
-                    columns_content = re.split("[ ]{2,}", line)
-                    if fst_columns_content == columns_content:
-                        file.seek(file.tell() - 1)
-                        header, offsets, fst_columns_content, scd_columns_content = self.get_table_header(file, table_name)
-
+    		# cut comment after first word or skip line
+            if len(fst_columns_content) >= 3 and "Comments" in fst_columns_content[2:3]:
+                comment_offset = offsets[fst_columns_content.index("Comments")]
+                space_index_add = line[comment_offset:].find(" ")
+                if "skipped" in line[comment_offset:]:
                     continue
+                if space_index_add != -1:
+                    line = line[:(comment_offset + space_index_add)]
 
-                probability = self.evaluate_line(file, line, table_idx, header, number_of_columns, offsets)
-                if probability < 0.25:
+                    # end of page, either break, or calculate new offsets
+                    if line.startswith("Page") or line.startswith("Family"):
+                        for i in range(0, 5):
+                            line = file.readline()[:-1]
+                        if file.tell() == file_size:  # end of file
+                            break
+                        file.seek(file.tell() - len(line) - 1)
+                        
+                        columns_content = re.split("[ ]{2,}", line)
+                        if fst_columns_content == columns_content:
+                            file.seek(file.tell() - 1)
+                            header, offsets, fst_columns_content, scd_columns_content = self.get_table_header(file, table_name)
+
+                        continue
+
+                    probability = self.evaluate_line(file, line, table_idx, header, number_of_columns, offsets)
+                    if probability < 0.25:
+                        break
+
+                    if number_of_columns != 1 and len(rows) <= 1 and not "NOTE" in line:
+                        columns_content = re.split("[ ]{2,}", line)
+
+                        if len(columns_content) == (number_of_columns - 1) and columns_content[0] != "" and "Comment" in fst_columns_content[-1]: # append empty comment line
+                            columns_content.append("empty comment")
+
+                        if len(columns_content) != number_of_columns or columns_content[0] == "":
+                            columns_content = self.split_row(line, offsets)
+                    else:
+                        columns_content = self.split_row(line, offsets)
+                        if not columns_content:
+                            break
+
+                    if rows and columns_content[0] == "" and not columns_content[1].startswith("#"):
+                        for i in range(1, number_of_columns):
+                            if columns_content[i] is not "":
+                                rows[len(rows)-1][i] += " "
+                            rows[len(rows)-1][i] += columns_content[i]
+                    else:
+                        l = []
+                        for e in list(columns_content):
+                            l.append(e.strip())
+                        rows.append(l)
+
+                    # print "{:1.2f}: {:s}".format(probability, line)
+
+                if not self.verify_rows(rows, number_of_columns_for_verification):
+                    raise AssertionError("Wrong number of columns in row of Table " + table_idx)
+
+                regex_multiple_spaces = re.compile(r"\s{2,}")
+                table_name = regex_multiple_spaces.sub(" ", table_name)
+                table_short_name = regex_multiple_spaces.sub(" ", table_short_name)
+
+                pattern = "([^<]*)"
+                result = re.search(pattern, table_short_name)
+                table_short_name = result.group(1).strip()
+                table_short_name = re.sub('\([^)]*\)\s*$', "", table_short_name)
+                table_short_name = re.sub('\s*$', "", table_short_name)
+
+                table = TPM2_Partx_Table(table_name, table_short_name, str(table_idx), rows)
+
+                name = table_short_name
+                table = self.classify_table(table, name)
+
+                print ( table_name)
+                tables.append(table)
+
+                if file.tell() == file_size:  # end of file
                     break
 
-                if number_of_columns != 1 and len(rows) <= 1 and not "NOTE" in line:
-                    columns_content = re.split("[ ]{2,}", line)
+                table_idx += 1
 
-		    if len(columns_content) == (number_of_columns - 1) and columns_content[0] != "" and "Comment" in fst_columns_content[-1]: # append empty comment line
-			columns_content.append("empty comment")
-
-                    if len(columns_content) != number_of_columns or columns_content[0] == "":
-                        columns_content = self.split_row(line, offsets)
-                else:
-                    columns_content = self.split_row(line, offsets)
-                    if not columns_content:
-                        break
-
-                if rows and columns_content[0] == "" and not columns_content[1].startswith("#"):
-                    for i in range(1, number_of_columns):
-                        if columns_content[i] is not "":
-                            rows[len(rows)-1][i] += " "
-                        rows[len(rows)-1][i] += columns_content[i]
-                else:
-                    l = []
-                    for e in list(columns_content):
-                        l.append(e.strip())
-                    rows.append(l)
-
-                # print "{:1.2f}: {:s}".format(probability, line)
-
-            if not self.verify_rows(rows, number_of_columns_for_verification):
-                raise AssertionError("Wrong number of columns in row of Table " + table_idx)
-
-            regex_multiple_spaces = re.compile(r"\s{2,}")
-            table_name = regex_multiple_spaces.sub(" ", table_name)
-            table_short_name = regex_multiple_spaces.sub(" ", table_short_name)
-
-            pattern = "([^<]*)"
-            result = re.search(pattern, table_short_name)
-            table_short_name = result.group(1).strip()
-            table_short_name = re.sub('\([^)]*\)\s*$', "", table_short_name)
-            table_short_name = re.sub('\s*$', "", table_short_name)
-
-            table = TPM2_Partx_Table(table_name, table_short_name, str(table_idx), rows)
-
-            name = table_short_name
-            table = self.classify_table(table, name)
-
-            print table_name
-            tables.append(table)
-
-            if file.tell() == file_size:  # end of file
-                break
-
-            table_idx += 1
-
-        return tables
+            return tables
 
     # Main function to call from this class
     # Parameters:

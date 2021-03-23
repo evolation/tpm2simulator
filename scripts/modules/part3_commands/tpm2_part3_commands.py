@@ -36,11 +36,11 @@ class Commands:
 
     # Creates HandleProcess.c file
     def create_handle_process(self):
-        print ""
-        print "Creating HandleProcess.c"
+        print ("")
+        print ("Creating HandleProcess.c")
         p = HandleProcess()
         for command in self.list_of_tables_commands:
-            print "    * " + command.name
+            print ("    * " + command.name)
             p.create_handle_process_case_pdf(command.name, command.rows)
         p.write()
 

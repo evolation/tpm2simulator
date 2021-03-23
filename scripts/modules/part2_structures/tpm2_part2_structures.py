@@ -158,10 +158,10 @@ class Structures:
             if "Reserved" in bitname:
                 bitname = "Reserved_from_" + str(size)
 
-	    pos = bitname.find(" ".encode())
-	    if pos != -1 and (bitname[pos - 1] in string.ascii_lowercase or bitname[pos - 1] in string.ascii_uppercase):
-		if (bitname[pos + 1] in string.ascii_lowercase or bitname[pos + 1] in string.ascii_uppercase):
-			bitname = bitname.replace(" ".encode(), "".encode())
+            pos = bitname.find(" ".encode())
+            if pos != -1 and (bitname[pos - 1] in string.ascii_lowercase or bitname[pos - 1] in string.ascii_uppercase):
+                if (bitname[pos + 1] in string.ascii_lowercase or bitname[pos + 1] in string.ascii_uppercase):
+                    bitname = bitname.replace(" ".encode(), "".encode())
 
             self.tpm_types_h_file_content += "        unsigned    " + bitname + utils.indent(bitname) + ": " + str(nr_of_bits) + ";\n"
             size += nr_of_bits
@@ -384,10 +384,10 @@ class Structures:
 
         self.tpm_types_h_file_content = TpmTypes.TPMTYPES_HEADER
 
-        print "Writing TPM_Types.h (and BaseTypes.h):"
+        print ("Writing TPM_Types.h (and BaseTypes.h):")
 
         for table in table_list:
-            print u"\t" + table.name.replace(u"—", "")  # "—" requires unicode
+            print (u"\t" + table.name.replace(u"—", "")) # "—" requires unicode
 
             if "Definition" not in table.name:
                 continue

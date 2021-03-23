@@ -34,7 +34,8 @@ class FileHandling(object):
     def get_fd(self, file_name):
         fd = None
         if file_name.endswith(".txt"):
-            f = codecs.open(file_name, "r", constants.UTF8)
+            print("GEORGE OPEN " + file_name)
+            f = open(file_name, 'r')
             fd = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
         elif file_name.endswith(".fodt"):
             f = open(file_name)

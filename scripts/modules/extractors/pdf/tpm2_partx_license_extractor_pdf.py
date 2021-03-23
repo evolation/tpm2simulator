@@ -10,7 +10,8 @@ class LicenseExtractorPDF(LicenseExtractor):
     # Returns:
     # same line looking like a C code comment
     def format_line_pdf(self, line):
-
+        
+        
         result = re.search("^(1|2|3)\.", line)
         if "Licenses and Notices" in line or result:
             formatted_line = self.EMPTY_LINE + self.BEGIN + line
@@ -27,21 +28,23 @@ class LicenseExtractorPDF(LicenseExtractor):
     def extract_license_pdf(self, txt_file):
 
         txt_file.seek(0)
-
+        line = ""
         while True:
 
             line = txt_file.readline()[:-1]
+            line = line.decode()
+
             if "Licenses and Notices" in line:
                 break
 
             if txt_file.tell() == txt_file.size():  # end of file
                 raise AssertionError("LICENSE TEXT NOT FOUND")
 
-        self.content += self.format_line_pdf(line.strip())
+        self.content += self.format_line_pdf(line)
 
         while True:
             line = txt_file.readline()[:-1]
-
+            line = line.decode()
             if "CONTENTS" in line:
                 break
 

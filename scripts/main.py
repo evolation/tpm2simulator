@@ -4,7 +4,7 @@ from collections import OrderedDict
 import sys
 import settings
 import logging
-
+from importlib import reload
 # tpm2 class imports
 from modules.file_handling import FileHandling
 import modules.part2_structures.tpm2_part2_structures as structures
@@ -14,18 +14,17 @@ import modules.part4_spt_routines.tpm2_part4_spt_routines_header_files as spt_ro
 import modules.part4_spt_routines.tpm2_part4_spt_routines as spt_routines
 import modules.part4_spt_routines.tpm2_part4_spt_routines_annex as spt_routines_annex
 
-reload(sys) 
-sys.setdefaultencoding('utf8')
+reload(sys)
 
 # --------------------------------------------------------------------------- #
 # Check settings
 # --------------------------------------------------------------------------- #
 if len(sys.argv) == 2 and len(sys.argv[1]) == 3 and sys.argv[1].startswith("1"):
-    print "updating version to " + sys.argv[1]
+    print ("updating version to " + sys.argv[1])
     settings.update_spec(sys.argv[1])
 
 if not settings.SET:
-    print "Please check and set the values in 'settings.py'"
+    print ("Please check and set the values in 'settings.py'")
     exit(1)
 
 # --------------------------------------------------------------------------- #
@@ -104,27 +103,27 @@ a = spt_routines_annex.SptRoutinesAnnex()
 file_handler = FileHandling()
 
 # Extract code:
-print "Reading " + settings.TPM20_SPEC_STRUCTURES
+print ("Reading " + settings.TPM20_SPEC_STRUCTURES)
 structures_file = file_handler.get_fd(settings.TPM20_SPEC_STRUCTURES)
-print ""
+print ("")
 s.extract(structures_file)
 
-print ""
-print "Reading " + settings.TPM20_SPEC_COMMANDS
+print ("")
+print ("Reading " + settings.TPM20_SPEC_COMMANDS)
 sys.stdout.flush()
 commands_file = file_handler.get_fd(settings.TPM20_SPEC_COMMANDS)
-print ""
+print ("")
 c.extract(commands_file, dict_sections_commands)
 
-print ""
-print "Reading " + settings.TPM20_SPEC_SUPPORTING_ROUTINES
+print ("")
+print ("Reading " + settings.TPM20_SPEC_SUPPORTING_ROUTINES)
 sys.stdout.flush()
 support_file = file_handler.get_fd(settings.TPM20_SPEC_SUPPORTING_ROUTINES)
-print ""
+print ("")
 h.extract(support_file, dict_sections_spt_routines_header_files)
 r.extract(support_file, dict_sections_spt_routines)
 a.extract(support_file, dict_sections_spt_routines_annex)
 
-print ""
+print ("")
 if FileHandling.warn_pyastyle:
     logging.warning(" pyastyle not found! Please run 'pip install pyastyle' for formatted output.")
